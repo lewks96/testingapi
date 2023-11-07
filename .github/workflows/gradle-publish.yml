@@ -18,14 +18,3 @@ jobs:
       uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
       with:
         arguments: build
-    - name: Archive Release
-      uses: thedoctor0/zip-release@0.7.5
-      with:
-        type: 'zip'
-        filename: 'release.zip'
-        exclusions: '*.git* /*node_modules/* .editorconfig'
-    - name: Upload Release
-      uses: ncipollo/release-action@v1.12.0
-      with:
-        artifacts: "release.zip"
-        token: ${{ secrets.GITHUB_TOKEN }}
